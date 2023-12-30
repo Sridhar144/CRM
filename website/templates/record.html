@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col mx-5">
+
+<h1>Customer Record:</h1>
+
+<!-- <table id="example" class="table table-hover table-striped table-bordered" style="width:100%">
+    
+    <tbody> -->
+  
+        <tr>
+            <div class="card text-center">
+                <div class="card-header">
+                    {{customer_record.sno}} : {{customer_record.first_name}} {{customer_record.last_name}}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Timing: {{customer_record.created_at}}</h5>
+                  <p class="card-text">{{customer_record.phone}}.</p>
+                  <a href="#" class="btn btn-primary">Click to send mail to the id: {{customer_record.email}}</a>
+                </div>
+                <div class="card-footer text-muted">
+                  
+                </div>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Record Entity</div>
+                      <div class="card-body text-secondary">
+
+                        <h5 class="card-title">Address</h5>
+                        <p class="card-text">{{customer_record.address}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Record Entity</div>
+                      <div class="card-body text-secondary">
+                        <h5 class="card-title">Zipcode</h5>
+                        <p class="card-text">{{customer_record.zipcode}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Record Entity</div>
+                      <div class="card-body text-secondary">
+                        <div style="background-image: url('https://source.unsplash.com/500x300/?{{customer_record.city}}');background-size: cover; background-repeat: no-repeat; background-position: center center;height: 350px;"></div>
+
+                        <h5 class="card-title">City</h5>
+                        <p class="card-text">{{customer_record.city}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                      <div class="card-header">Record Entity</div>
+                      <div class="card-body text-secondary">
+                        <div style="background-image: url('https://source.unsplash.com/500x300/?{{customer_record.state}}');background-size: cover; background-repeat: no-repeat; background-position: center center;height: 350px;"></div>
+
+                        <h5 class="card-title">State</h5>
+                        <p class="card-text">{{customer_record.state}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-6">
+                    <i class="fa-arrow-left"></i>
+                    <a href="{% url 'home' %}" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">    <i class="fas fa-arrow-alt-circle-left"></i>BACK</a>
+                  </div>
+                  <div class="col-6 d-flex justify-content-end">
+                    <a href="{% url 'update_record' customer_record.sno %}" class="btn btn-light btn-lg" role="button" aria-disabled="true"><i class="fas fa-user-edit"></i>UPDATE!</a>
+                    <a href="{% url 'delete_record' customer_record.sno %}" class="btn btn-danger btn-lg" role="button" aria-disabled="true"><i class="fas fa-trash"></i>DELETE!</a>
+                  </div>
+                </div>
+              </div>
+              
+              
+  </div>
+  <!-- <script>
+    $(document).ready(function()
+    {
+      $('#example').DataTable();
+    });
+  </script> -->
+{% endblock %}

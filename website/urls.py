@@ -22,4 +22,8 @@ urlpatterns=[
     # path('login/',views.login_user, name='login'),
     path('register',views.register_user, name='register'),
     path('logout',views.logout_user, name='logout'),
+    path('record/<int:pk>',views.customer_record, name='record'),
+    path('deleterecord/<int:pk>',views.delete_record, name='delete_record'),
+    path('addrecord',views.add_record, name='add_record'),
+    path('updaterecord/<int:pk>',views.update_record, name='update_record'),
 ]

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <h1>Add Record:</h1>
+    <br><br>
+    <form action="{% url 'add_record' %}" method="POST">
+        {% csrf_token %}    
+        {{form.as_p}}
+        <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <a href="{% url 'home' %}" class="btn btn-light btn-lg" role="button" aria-disabled="true">    <i class="fas fa-arrow-alt-circle-left"></i>
+                    BACK!</a>
+              </div>
+              <div class="col-6 d-flex justify-content-end">
+                <button type="submit" class="btn btn-secondary">Submit</button>
+              </div>
+            </div>
+        <br>
+    </form>    
+
+</div>
+
+
+{% endblock %}

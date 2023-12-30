@@ -1,22 +1,51 @@
 {%extends 'base.html'%}
 {%block content%}
 {%if user.is_authenticated%}
-<table>
-    <thead>
-        <tr>
-            <th scope ="col">
-                Name
-            </th>
-            <th scope ="col">
-                Name
-            </th>
-            <th scope ="col">
-                Name
-            </th>
-            
-        </tr>
-    </thead>
+<div class="col mx-5">
+
+<h1>Records</h1>
+
+<table id="example" class="table table-hover table-striped table-bordered" style="width:100%">
+  <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Time</th>
+          <th>FName</th>
+          <th>LName</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zipcode</th>
+          <th>Click2Update</th>
+          
+      </tr>
+  </thead>
+  <tbody>
+    {%if records%}
+  {%for record in records%} 
+
+      <tr>
+          <td><a href="{%url 'record' record.sno%}">{{record.sno}}</a></td>
+          <td>{{record.created_at}}</td>
+          <td><a href="{%url 'record' record.sno%}"></a>{{record.first_name}}</td>
+          <td>{{record.last_name}}</td>
+          <td>{{record.email}}</td>
+          <td>{{record.phone}}</td>
+          <td>{{record.address}}</td>
+          <td>{{record.city}}</td>
+          <td>{{record.state}}</td>
+          <td>{{record.zipcode}}</td>
+          <td><a href="{%url 'update_record' record.sno%}"><i class="fas fa-mouse-pointer"></i></a></td>
+      </tr>
+      {%endfor%}
+{%endif%}
+  </tfoot>
 </table>
+<a href="{%url 'add_record'%}" class="btn btn-info btn-lg" role="button" aria-disabled="true">Add Record!</a>
+
+</div>
 {%else%}
 <div class="col-md-6 offset-md-3">
 <br>
@@ -25,11 +54,11 @@
 	{% csrf_token %}
 
   <div class="mb-3">
-    <input type="text" class="form-control" name="username", placeholder="Username" required>
+    <input type="text" class="form-control" name="username" placeholder="Username" required>
     
   </div><br/>
   <div class="mb-3">
-    <input type="password" class="form-control" name="password", placeholder="Password" required>
+    <input type="password" class="form-control" name="password" placeholder="Password" required>
   </div>
   <br/>
   <button type="submit" class="btn btn-secondary">Login</button>
@@ -37,4 +66,10 @@
 </form>
 </div>
 {%endif%}
+<script>
+  $(document).ready(function()
+  {
+    $('#example').DataTable();
+  });
+</script>
 {%endblock%}
